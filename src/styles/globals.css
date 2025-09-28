@@ -126,12 +126,34 @@
     animation: glitch 0.3s infinite;
   }
 
-  /* Terminal Input Base */
-  .terminal-input {
-    @apply bg-transparent border-0 border-b border-matrix-green-100
-           text-matrix-green-100 font-terminal p-2 outline-none w-full
-           placeholder:text-matrix-green-400
-           focus:border-matrix-green-100 focus:shadow-[0_1px_0_var(--matrix-green-100)];
+  /* Terminal Input Base - High specificity to override browser defaults */
+  .terminal-input,
+  input.terminal-input {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--matrix-green-100) !important;
+    color: var(--matrix-green-100) !important;
+    font-family: var(--terminal-font) !important;
+    padding: 8px !important;
+    outline: none !important;
+    width: 100% !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .terminal-input::placeholder,
+  input.terminal-input::placeholder {
+    color: var(--matrix-green-400) !important;
+    opacity: 0.7 !important;
+  }
+
+  .terminal-input:focus,
+  input.terminal-input:focus {
+    border-bottom: 1px solid var(--matrix-green-100) !important;
+    box-shadow: 0 1px 0 var(--matrix-green-100) !important;
   }
 }
 

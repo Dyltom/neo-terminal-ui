@@ -15,6 +15,7 @@ export interface TerminalProps extends React.HTMLAttributes<HTMLDivElement> {
   crt?: boolean
   autoScroll?: boolean
   height?: string
+  disabled?: boolean
   onCommand?: (command: string) => void
 }
 
@@ -28,6 +29,7 @@ const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
     crt = false,
     autoScroll = true,
     height = "400px",
+    disabled = false,
     onCommand,
     ...props
   }, ref) => {
@@ -94,9 +96,9 @@ const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
 
       const colorClass = {
         input: "text-matrix-green-100",
-        output: "text-matrix-green-200",
+        output: "text-matrix-green-100",
         error: "text-matrix-red",
-        system: "text-matrix-amber"
+        system: "text-matrix-green-100"
       }[line.type]
 
       return (
@@ -159,8 +161,9 @@ const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
               value={currentInput}
               onChange={(e) => setCurrentInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent outline-none text-matrix-green-100 font-mono caret-matrix-green-100 placeholder:text-matrix-green-400/50"
-              autoFocus
+              className="terminal-input border-0 p-0 flex-1 caret-[#00ff41]"
+              disabled={disabled}
+              autoFocus={!disabled}
             />
             {showCursor && <span className="cursor animate-blink ml-0.5">█</span>}
           </div>

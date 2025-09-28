@@ -11,9 +11,10 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, error, success, withCursor, terminal, ...props }, ref) => {
+  ({ className, type, label, error, success, withCursor, terminal, id, ...props }, ref) => {
     const [focused, setFocused] = React.useState(false)
     const [, setValue] = React.useState(props.value || props.defaultValue || "")
+    const inputId = id || React.useId()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
@@ -23,7 +24,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-xs uppercase tracking-wider text-matrix-green-200 mb-2">
+          <label htmlFor={inputId} className="block text-xs uppercase tracking-wider text-matrix-green-200 mb-2">
             {terminal && "> "}{label}
           </label>
         )}
@@ -34,12 +35,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
           <input
+            id={inputId}
             type={type}
             className={cn(
-              "flex h-10 w-full bg-transparent px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-matrix-green-400/50 disabled:cursor-not-allowed disabled:opacity-50",
-              "border-b border-matrix-green-100/30 text-matrix-green-100 font-mono",
-              "focus:border-matrix-green-100 focus:outline-none focus:shadow-[0_1px_0_var(--matrix-green-100)]",
-              "transition-all duration-200",
+              "terminal-input",
               terminal && "pl-6",
               error && "border-matrix-red text-matrix-red focus:border-matrix-red focus:shadow-[0_1px_0_var(--matrix-red)]",
               success && "border-matrix-green-100 text-matrix-green-100",
