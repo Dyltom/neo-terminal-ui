@@ -76,10 +76,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dylanhenderson/neo-terminal-ui"
+    "url": "https://github.com/Dyltom/neo-terminal-ui"
   },
   "bugs": {
-    "url": "https://github.com/dylanhenderson/neo-terminal-ui/issues"
+    "url": "https://github.com/Dyltom/neo-terminal-ui/issues"
   },
-  "homepage": "https://github.com/dylanhenderson/neo-terminal-ui#readme"
+  "homepage": "https://github.com/Dyltom/neo-terminal-ui#readme"
 }
