@@ -12,3 +12,33 @@ export { Separator } from './separator';
 export { Avatar, AvatarImage, AvatarFallback } from './avatar';
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './tooltip';
 export { AspectRatio } from './aspect-ratio';
+export { Checkbox } from './checkbox';
+
+// Second batch - Form and overlay components
+export { RadioGroup, RadioGroupItem } from './radio-group';
+export {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton
+} from './select';
+export { Switch } from './switch';
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription
+} from './dialog';
+export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, PopoverClose } from './popover';
