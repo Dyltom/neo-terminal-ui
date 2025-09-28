@@ -9,6 +9,18 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     css: true,
+    // Memory optimization settings
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+        isolate: true,
+      }
+    },
+    maxConcurrency: 2,
+    maxWorkers: 2,
+    minWorkers: 1,
+    testTimeout: 10000,
   },
   resolve: {
     alias: {

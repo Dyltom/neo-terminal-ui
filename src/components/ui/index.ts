@@ -42,3 +42,26 @@ export {
   DialogDescription
 } from './dialog';
 export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, PopoverClose } from './popover';
+
+// Third batch - Navigation and interaction components
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup
+} from './dropdown-menu';
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './accordion';
+export { Progress } from './progress';
+export { Toggle, ToggleGroup, ToggleGroupItem } from './toggle';
