@@ -159,7 +159,7 @@ const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
               value={currentInput}
               onChange={(e) => setCurrentInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent outline-none"
+              className="flex-1 bg-transparent outline-none text-matrix-green-100 font-mono caret-matrix-green-100 placeholder:text-matrix-green-400/50"
               autoFocus
             />
             {showCursor && <span className="cursor animate-blink ml-0.5">█</span>}
