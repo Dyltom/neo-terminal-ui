@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@lib/utils"
+import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   // Base styles exactly matching timer-scheduler
@@ -113,7 +113,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <button
-        className={cn(buttonVariants({ variant, size, pulse, className }))}
+        className={cn(buttonVariants({ variant, size, pulse, className }), "group")}
         ref={ref}
         onClick={handleClick}
         disabled={loading || props.disabled}
@@ -125,7 +125,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {/* Slide-in background effect */}
         <span
-          className="absolute inset-0 bg-[#00ff41] -left-full transition-[left] duration-300 hover:left-0"
+          className="absolute inset-0 bg-[#00ff41] -left-full transition-[left] duration-300 group-hover:left-0"
           style={{ zIndex: 0 }}
           aria-hidden="true"
         />
