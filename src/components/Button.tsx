@@ -70,14 +70,36 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Props for the Matrix-themed Button component
+ */
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /** Show loading state with animated "LOADING..." text */
   loading?: boolean
+  /** Play Matrix-themed sound effect on click */
   withSound?: boolean
+  /** Icon to display before the button text */
   icon?: React.ReactNode
 }
 
+/**
+ * Matrix-themed button component with cyberpunk aesthetics.
+ *
+ * Features include:
+ * - Matrix-style glow effects on hover
+ * - Multiple color variants (default, primary, destructive, amber, ghost, link)
+ * - Optional sound effects, loading states, and animations
+ * - Fully accessible with keyboard navigation
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" withSound>
+ *   EXECUTE COMMAND
+ * </Button>
+ * ```
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, pulse, glitch, loading, withSound, children, onClick, icon, style, ...props }, ref) => {
     const handleClick = React.useCallback((e: React.MouseEvent<HTMLButtonElement>) => {

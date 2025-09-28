@@ -39,6 +39,13 @@ export type { ASCIIFrameProps, ASCIIBoxProps, FrameStyle } from './components/AS
 export { TerminalStatus, SystemInfo } from './components/TerminalStatus'
 export type { TerminalStatusProps, SystemInfoProps, StatusType, StatusConfig } from './components/TerminalStatus'
 
+// Badge Components
+export { Badge, badgeVariants } from './components/ui/badge'
+export type { BadgeProps } from './components/ui/badge'
+
+// Alert Components
+export { Alert, AlertTitle, AlertDescription } from './components/ui/alert'
+
 // Utilities
 export { cn } from './lib/utils'
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from '../ui/button';
+import { Button } from '../Button';
 
 const ASCII_HEADER = `
 ╔═══════════════════════════════════════════════════════════╗
@@ -206,7 +206,7 @@ export function Timer({
           onClick={togglePlayPause}
           aria-label={isRunning ? 'Pause timer' : 'Start timer'}
           aria-pressed={isRunning}
-          variant="outline"
+          variant="default"
           className="border-matrix-green-100 text-matrix-green-100 hover:bg-matrix-green-100 hover:text-matrix-black uppercase tracking-wider"
         >
           <span className="flex items-center gap-2">
@@ -217,7 +217,7 @@ export function Timer({
         <Button
           onClick={reset}
           aria-label="Reset timer"
-          variant="outline"
+          variant="default"
           className="border-matrix-green-100 text-matrix-green-100 hover:bg-matrix-green-100 hover:text-matrix-black uppercase tracking-wider"
         >
           <span className="flex items-center gap-2">↺ RESET</span>
@@ -230,7 +230,7 @@ export function Timer({
           onTouchStart={handleFastForwardDown}
           onTouchEnd={handleFastForwardUp}
           aria-label="Hold to fast forward"
-          variant="outline"
+          variant="default"
           className={cn(
             "border-matrix-green-100 text-matrix-green-100 hover:bg-matrix-green-100 hover:text-matrix-black uppercase tracking-wider",
             isFastForward && "bg-matrix-green-100 text-matrix-black"

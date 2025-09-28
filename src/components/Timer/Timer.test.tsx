@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Timer } from './Timer'
 
@@ -58,49 +58,61 @@ describe('Timer', () => {
     render(<Timer onTimeUpdate={onTimeUpdate} />)
 
     const startButton = screen.getByLabelText('Start timer')
-    fireEvent.click(startButton)
+
+    await act(async () => {
+      fireEvent.click(startButton)
+    })
 
     // Advance timers to trigger the interval
-    vi.advanceTimersByTime(100)
+    await act(async () => {
+      vi.advanceTimersByTime(100)
+    })
 
     expect(onTimeUpdate).toHaveBeenCalled()
     vi.useRealTimers()
   })
 
   it('starts and pauses timer when button is clicked', async () => {
-    const user = userEvent.setup()
     render(<Timer />)
 
     const toggleButton = screen.getByLabelText('Start timer')
 
-    await user.click(toggleButton)
+    await act(async () => {
+      fireEvent.click(toggleButton)
+    })
     expect(screen.getByLabelText('Pause timer')).toBeInTheDocument()
 
     const pauseButton = screen.getByLabelText('Pause timer')
-    await user.click(pauseButton)
+    await act(async () => {
+      fireEvent.click(pauseButton)
+    })
     expect(screen.getByLabelText('Start timer')).toBeInTheDocument()
   })
 
   it('resets timer when reset button is clicked', async () => {
-    const user = userEvent.setup()
     render(<Timer />)
 
     const resetButton = screen.getByLabelText('Reset timer')
-    await user.click(resetButton)
+    await act(async () => {
+      fireEvent.click(resetButton)
+    })
 
     expect(screen.getByText('00:00.00')).toBeInTheDocument()
   })
 
   it('handles keyboard shortcuts', async () => {
-    const user = userEvent.setup()
     render(<Timer />)
 
     // Start with spacebar
-    await user.keyboard(' ')
+    await act(async () => {
+      fireEvent.keyDown(window, { key: ' ' })
+    })
     expect(screen.getByLabelText('Pause timer')).toBeInTheDocument()
 
     // Reset with R key
-    await user.keyboard('r')
+    await act(async () => {
+      fireEvent.keyDown(window, { key: 'r' })
+    })
     expect(screen.getByText('00:00.00')).toBeInTheDocument()
     expect(screen.getByLabelText('Start timer')).toBeInTheDocument()
   })
