@@ -5,3 +5,10 @@ export { Input } from './input';
 export { Textarea } from './textarea';
 export { Badge, badgeVariants, type BadgeProps } from './badge';
 export { Alert, AlertTitle, AlertDescription } from './alert';
+
+// First batch - Simple components
+export { Label } from './label';
+export { Separator } from './separator';
+export { Avatar, AvatarImage, AvatarFallback } from './avatar';
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './tooltip';
+export { AspectRatio } from './aspect-ratio';
