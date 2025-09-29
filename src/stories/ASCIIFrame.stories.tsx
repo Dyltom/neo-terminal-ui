@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ASCIIFrame, ASCIIBox } from '../components/matrix-effects/ASCIIFrame';
+import { ASCIIFrame, ASCIIBox, ASCIIBorder } from '../components/matrix-effects/ASCIIFrame';
 
 const meta = {
   title: 'Components/ASCIIFrame',
@@ -136,5 +136,61 @@ export const BoxComponent: Story = {
         </div>
       </ASCIIBox>
     </div>
+  ),
+};
+
+// ASCIIBorder Stories
+export const SimpleBorder: Story = {
+  render: () => (
+    <ASCIIBorder style="single" width={40} color="green-300">
+      <div className="text-center text-matrix-green-100 font-mono text-4xl py-4">
+        00:00.00
+      </div>
+    </ASCIIBorder>
+  ),
+};
+
+export const DoubleBorder: Story = {
+  render: () => (
+    <ASCIIBorder style="double" width={50} color="green-100">
+      <div className="text-center text-matrix-green-100 font-mono text-2xl py-6 px-4">
+        SYSTEM INITIALIZED
+      </div>
+    </ASCIIBorder>
+  ),
+};
+
+export const RoundedBorder: Story = {
+  render: () => (
+    <ASCIIBorder style="rounded" width={35} color="green-300">
+      <div className="text-center text-matrix-green-200 font-mono text-sm py-2">
+        [ LOADING... ]
+      </div>
+    </ASCIIBorder>
+  ),
+};
+
+export const AmberBorder: Story = {
+  render: () => (
+    <ASCIIBorder style="heavy" width={40} color="amber">
+      <div className="text-center text-matrix-amber font-mono text-lg py-3">
+        ⚠ WARNING ⚠
+      </div>
+    </ASCIIBorder>
+  ),
+};
+
+export const BorderWithMultipleElements: Story = {
+  render: () => (
+    <ASCIIBorder style="single" width={60} color="green-300">
+      <div className="py-4 px-6 space-y-2">
+        <div className="text-matrix-green-100 font-mono text-3xl text-center">
+          12:34.56
+        </div>
+        <div className="text-matrix-green-300 font-mono text-xs text-center">
+          ELAPSED TIME
+        </div>
+      </div>
+    </ASCIIBorder>
   ),
 };
