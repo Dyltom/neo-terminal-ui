@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ASCIIFrame, ASCIIBox } from '../components/ASCIIFrame/ASCIIFrame';
+import { ASCIIFrame, ASCIIBox } from '../components/matrix-effects/ASCIIFrame';
 
 const meta = {
   title: 'Components/ASCIIFrame',

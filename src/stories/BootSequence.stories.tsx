@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BootSequence } from '../components/BootSequence/BootSequence';
+import { BootSequence } from '../components/matrix-effects/BootSequence';
 
 const meta = {
   title: 'Components/BootSequence',

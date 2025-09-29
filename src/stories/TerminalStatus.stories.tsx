@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TerminalStatus, SystemInfo } from '../components/TerminalStatus/TerminalStatus';
+import { TerminalStatus, SystemInfo } from '../components/matrix-effects/TerminalStatus';
 
 const meta = {
   title: 'Components/TerminalStatus',

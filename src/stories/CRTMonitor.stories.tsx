@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CRTMonitor } from '../components/CRTMonitor/CRTMonitor';
-import { Timer } from '../components/Timer/Timer';
-import { TerminalStatus } from '../components/TerminalStatus/TerminalStatus';
+import { CRTMonitor } from '../components/matrix-effects/CRTMonitor';
+import { Timer } from '../components/matrix-effects/Timer';
+import { TerminalStatus } from '../components/matrix-effects/TerminalStatus';
 
 const meta = {
   title: 'Components/CRTMonitor',

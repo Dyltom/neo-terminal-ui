@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Terminal, CRTScreen } from '../components/Terminal';
+import { Terminal, CRTScreen } from '../components/matrix-effects/Terminal';
 import { useState } from 'react';
 
 const meta = {

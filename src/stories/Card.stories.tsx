@@ -6,9 +6,8 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-  TerminalCard,
-} from '../components/Card';
-import { Button } from '../components/Button';
+} from '../components/ui/card';
+import { Button } from '../components/ui/button';
 
 const meta = {
   title: 'Components/Card',
@@ -100,56 +99,59 @@ export const WithFooter: Story = {
 
 export const TerminalCardDefault: Story = {
   render: () => (
-    <TerminalCard
-      title="Network Monitor"
-      system="MATRIX"
-      status="online"
-      className="w-96"
-    >
-      <div className="space-y-2 text-sm font-mono">
-        <div>Packets sent: 42,156</div>
-        <div>Packets received: 38,901</div>
-        <div>Latency: 12ms</div>
-        <div>Uptime: 99.98%</div>
-      </div>
-    </TerminalCard>
+    <Card className="w-96">
+      <CardHeader>
+        <CardTitle>MATRIX Network Monitor</CardTitle>
+        <CardDescription>Status: ONLINE</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2 text-sm font-mono">
+          <div>Packets sent: 42,156</div>
+          <div>Packets received: 38,901</div>
+          <div>Latency: 12ms</div>
+          <div>Uptime: 99.98%</div>
+        </div>
+      </CardContent>
+    </Card>
   ),
 };
 
 export const TerminalCardWarning: Story = {
   render: () => (
-    <TerminalCard
-      title="Security Alert"
-      system="FIREWALL"
-      status="warning"
-      className="w-96"
-    >
-      <div className="space-y-2 text-sm">
-        <p className="text-matrix-amber">⚠ Suspicious activity detected</p>
-        <p>3 failed login attempts from IP: 192.168.1.42</p>
-        <p>Recommend immediate security audit</p>
-      </div>
-    </TerminalCard>
+    <Card className="w-96 border-yellow-500">
+      <CardHeader>
+        <CardTitle className="text-yellow-400">FIREWALL Security Alert</CardTitle>
+        <CardDescription>Status: WARNING</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2 text-sm">
+          <p className="text-yellow-400">⚠ Suspicious activity detected</p>
+          <p>3 failed login attempts from IP: 192.168.1.42</p>
+          <p>Recommend immediate security audit</p>
+        </div>
+      </CardContent>
+    </Card>
   ),
 };
 
 export const TerminalCardError: Story = {
   render: () => (
-    <TerminalCard
-      title="System Failure"
-      system="CORE"
-      status="error"
-      className="w-96"
-    >
-      <div className="space-y-2 text-sm">
-        <p className="text-matrix-red">✕ Critical system failure</p>
-        <p>Unable to connect to main database</p>
-        <p>Error code: 0x00FF41</p>
-        <Button variant="destructive" size="sm" className="mt-4">
-          INITIATE RECOVERY
-        </Button>
-      </div>
-    </TerminalCard>
+    <Card className="w-96 border-red-500">
+      <CardHeader>
+        <CardTitle className="text-red-400">CORE System Failure</CardTitle>
+        <CardDescription>Status: ERROR</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2 text-sm">
+          <p className="text-red-400">✕ Critical system failure</p>
+          <p>Unable to connect to main database</p>
+          <p>Error code: 0x00FF41</p>
+          <Button variant="destructive" size="sm" className="mt-4">
+            INITIATE RECOVERY
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   ),
 };
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Timer } from '../components/Timer/Timer';
+import { Timer } from '../components/matrix-effects/Timer';
 
 const meta = {
   title: 'Components/Timer',

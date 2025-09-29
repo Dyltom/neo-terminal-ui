@@ -1,7 +1,7 @@
-import { Button } from '../components/Button'
-import { Input } from '../components/Input'
-import { Card, CardHeader, CardTitle, CardContent, TerminalCard } from '../components/Card'
-import { Terminal } from '../components/Terminal'
+import { Button } from '../components/ui/button'
+import { Input } from '../components/ui/input'
+import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
+import { Terminal } from '../components/matrix-effects/Terminal'
 import { Badge } from '../components/ui/badge'
 import { Alert, AlertTitle, AlertDescription } from '../components/ui/alert'
 
@@ -42,21 +42,21 @@ function App() {
             </CardContent>
           </Card>
 
-          <TerminalCard
-            title="System Status"
-            system="CORE"
-            status="online"
-            className="md:col-span-2"
-          >
-            <div className="space-y-2">
-              <p>System operational</p>
-              <p>All modules loaded successfully</p>
-              <div className="flex gap-2 mt-4">
-                <Badge variant="success">ONLINE</Badge>
-                <Badge variant="warning">MONITORING</Badge>
+          <Card className="md:col-span-2">
+            <CardHeader>
+              <CardTitle>CORE System Status</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <p>System operational</p>
+                <p>All modules loaded successfully</p>
+                <div className="flex gap-2 mt-4">
+                  <Badge variant="default">ONLINE</Badge>
+                  <Badge variant="outline">MONITORING</Badge>
+                </div>
               </div>
-            </div>
-          </TerminalCard>
+            </CardContent>
+          </Card>
         </div>
 
         <Alert>
