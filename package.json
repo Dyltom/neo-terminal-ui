@@ -14,8 +14,9 @@
       "types": "./dist/index.d.ts"
     },
     "./styles": {
-      "import": "./dist/index.css"
-    }
+      "import": "./dist/style.css"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist"

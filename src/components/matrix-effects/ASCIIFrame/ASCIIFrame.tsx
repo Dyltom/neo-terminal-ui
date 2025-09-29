@@ -181,3 +181,43 @@ export function ASCIIBox({
     </div>
   );
 }
+
+export interface ASCIIBorderProps {
+  children?: React.ReactNode;
+  className?: string;
+  width?: number;
+  style?: FrameStyle;
+  color?: 'green-100' | 'green-200' | 'green-300' | 'green-400' | 'amber' | 'red';
+}
+
+/**
+ * ASCIIBorder - A simpler component that just renders top and bottom borders
+ * with content in between, without wrapping in a container
+ */
+export function ASCIIBorder({
+  children,
+  className,
+  width = 40,
+  style = 'single',
+  color = 'green-300',
+}: ASCIIBorderProps) {
+  const chars = frameStyles[style];
+  if (!chars || !chars.horizontal) return null;
+  const colorClass = colorClasses[color];
+
+  const horizontalLine = chars.horizontal.repeat(width - 2);
+  const topLine = `${chars.topLeft}${horizontalLine}${chars.topRight}`;
+  const bottomLine = `${chars.bottomLeft}${horizontalLine}${chars.bottomRight}`;
+
+  return (
+    <>
+      <div className={cn("ascii-border-top font-mono whitespace-pre leading-none", colorClass, className)}>
+        {topLine}
+      </div>
+      {children}
+      <div className={cn("ascii-border-bottom font-mono whitespace-pre leading-none", colorClass, className)}>
+        {bottomLine}
+      </div>
+    </>
+  );
+}

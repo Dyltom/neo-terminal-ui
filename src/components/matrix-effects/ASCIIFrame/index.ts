@@ -1,2 +1,2 @@
-export { ASCIIFrame, ASCIIBox } from './ASCIIFrame';
-export type { ASCIIFrameProps, ASCIIBoxProps, FrameStyle } from './ASCIIFrame';
+export { ASCIIFrame, ASCIIBox, ASCIIBorder } from './ASCIIFrame';
+export type { ASCIIFrameProps, ASCIIBoxProps, ASCIIBorderProps, FrameStyle } from './ASCIIFrame';

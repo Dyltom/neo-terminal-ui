@@ -25,6 +25,7 @@ export interface TerminalStatusProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   showBrackets?: boolean;
+  unstyled?: boolean; // Allow completely custom styling
 }
 
 const sizeClasses = {
@@ -56,11 +57,29 @@ export function TerminalStatus({
   className,
   size = 'md',
   showBrackets = true,
+  unstyled = false,
 }: TerminalStatusProps) {
   const config = defaultStatusConfigs[status];
   const label = customLabel || config.label;
   const colorClass = colorClasses[config.color];
   const glowClass = glowClasses[config.color];
+
+  // For unstyled mode, return minimal structure for maximum flexibility
+  if (unstyled) {
+    return (
+      <>
+        <span className={cn(
+          status === 'online' ? 'status-online' : 'status-warning',
+          className
+        )}>
+          {label}
+        </span>
+        {showIndicator && (
+          <span className="status-indicator" />
+        )}
+      </>
+    );
+  }
 
   return (
     <div
@@ -111,6 +130,7 @@ export interface SystemInfoProps {
   className?: string;
   showLabels?: boolean;
   separator?: string;
+  showBrackets?: boolean; // Control bracket display
 }
 
 export function SystemInfo({
@@ -120,12 +140,25 @@ export function SystemInfo({
   className,
   showLabels = true,
   separator = ' | ',
+  showBrackets = true,
 }: SystemInfoProps) {
   const items = [
     { label: 'SYSTEM UPTIME', value: uptime },
     { label: 'CPU', value: `${cpu}%` },
     { label: 'MEM', value: memory },
   ];
+
+  const content = (
+    <>
+      {items.map((item, index) => (
+        <span key={item.label}>
+          {showLabels && `${item.label}: `}
+          <span className="text-matrix-green-300">{item.value}</span>
+          {index < items.length - 1 && separator}
+        </span>
+      ))}
+    </>
+  );
 
   return (
     <div
@@ -134,15 +167,13 @@ export function SystemInfo({
         className
       )}
     >
-      {'[ '}
-      {items.map((item, index) => (
-        <span key={item.label}>
-          {showLabels && `${item.label}: `}
-          <span className="text-matrix-green-300">{item.value}</span>
-          {index < items.length - 1 && separator}
-        </span>
-      ))}
-      {' ]'}
+      {showBrackets ? (
+        <>
+          {'[ '}
+          {content}
+          {' ]'}
+        </>
+      ) : content}
     </div>
   );
 }

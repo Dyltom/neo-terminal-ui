@@ -27,11 +27,23 @@ export type { BootSequenceProps, BootSequenceMessage } from './components/matrix
 export { CRTMonitor } from './components/matrix-effects/CRTMonitor'
 export type { CRTMonitorProps } from './components/matrix-effects/CRTMonitor'
 
-export { ASCIIFrame, ASCIIBox } from './components/matrix-effects/ASCIIFrame'
-export type { ASCIIFrameProps, ASCIIBoxProps, FrameStyle } from './components/matrix-effects/ASCIIFrame'
+export { ASCIIFrame, ASCIIBox, ASCIIBorder } from './components/matrix-effects/ASCIIFrame'
+export type { ASCIIFrameProps, ASCIIBoxProps, ASCIIBorderProps, FrameStyle } from './components/matrix-effects/ASCIIFrame'
 
 export { TerminalStatus, SystemInfo } from './components/matrix-effects/TerminalStatus'
 export type { TerminalStatusProps, SystemInfoProps, StatusType, StatusConfig } from './components/matrix-effects/TerminalStatus'
+
+export { ASCIIHeader } from './components/matrix-effects/ASCIIHeader'
+export type { ASCIIHeaderProps } from './components/matrix-effects/ASCIIHeader'
+
+export { TimerDisplay } from './components/matrix-effects/TimerDisplay'
+export type { TimerDisplayProps } from './components/matrix-effects/TimerDisplay'
+
+export { KeyboardHints } from './components/matrix-effects/KeyboardHints'
+export type { KeyboardHintsProps, KeyboardHint } from './components/matrix-effects/KeyboardHints'
+
+export { TimerContainer } from './components/matrix-effects/TimerContainer'
+export type { TimerContainerProps } from './components/matrix-effects/TimerContainer'
 
 // Badge Components
 export { Badge, badgeVariants } from './components/ui/badge'
